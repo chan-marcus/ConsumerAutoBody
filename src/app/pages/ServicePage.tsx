@@ -7,12 +7,14 @@ import { Location } from '../components/Location';
 import { Footer } from '../components/Footer';
 import backgroundImg from '../../imports/hero-bg.webp';
 import { SERVICES, type Service } from '../services';
+import { POSTS, postPath } from '../posts';
 import { BUSINESS } from '../site';
 import { H, T } from '../typeset';
 
 export function ServicePage({ service }: { service: Service }) {
   const at = SERVICES.indexOf(service);
   const related = [1, 2, 3].map((k) => SERVICES[(at + k) % SERVICES.length]);
+  const reading = POSTS.filter((p) => p.services.includes(service.slug));
 
   return (
     <div className="min-h-screen bg-neutral-50">
@@ -117,6 +119,20 @@ export function ServicePage({ service }: { service: Service }) {
                   </div>
                 ))}
               </div>
+              {reading.length > 0 && (
+                <div className="mt-10">
+                  <h3 className="text-xl font-bold mb-3">Related reading</h3>
+                  <ul className="space-y-2">
+                    {reading.map((p) => (
+                      <li key={p.slug}>
+                        <a href={postPath(p)} className="text-lg text-cyan-700 hover:text-cyan-800 underline underline-offset-2">
+                          <H>{p.h1}</H>
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
             </div>
           </div>
         </section>

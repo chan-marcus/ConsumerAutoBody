@@ -23,6 +23,7 @@ const NARROW = { maxRun: 22, minTail: 12 };
 const NAMES = [
   'Consumer Auto Body',
   'California Insurance Code',
+  'California Vehicle Code',
   'San Francisco',
   'Mission District',
   'Valencia Street',
@@ -39,6 +40,7 @@ const KEEP = new RegExp(
     `\\(\\d{3}\\)${space}\\d{3}-\\d{4}`,
     `\\b\\d{1,2}:\\d{2}${space}[AP]M\\b`,
     `\\bsection${space}\\d+(?:\\.\\d+)?`,
+    `\\b(?:January|February|March|April|May|June|July|August|September|October|November|December)${space}\\d{1,2},${space}\\d{4}\\b`,
     // Hyphenated words: browsers also break after a hyphen.
     `[^\\s\\u00a0]*[A-Za-z0-9][-\\u2013][A-Za-z0-9][^\\s\\u00a0]*`,
   ].join('|'),

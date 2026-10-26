@@ -1,6 +1,7 @@
 import { Phone, MapPin, Clock, Star, Globe } from 'lucide-react';
 import googleLogo from '../../imports/google-logo.webp';
 import yelpLogo from '../../imports/yelp-logo.webp';
+import { BUSINESS } from '../site';
 
 export function Header() {
   return (
@@ -40,7 +41,7 @@ export function Header() {
                     <img src={yelpLogo} alt="Yelp" width={64} height={64} className="h-4 md:h-5 w-auto" />
                   </a>
                   <a
-                    href="https://www.google.com/maps/place/Consumers+Auto+Body+Inc/@37.75817,-122.4211242,15z/data=!4m7!3m6!1s0x0:0x358d59699a3a300f!8m2!3d37.75817!4d-122.4211242!9m1!1b1"
+                    href={BUSINESS.googleUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center hover:opacity-80 transition-opacity"
@@ -97,6 +98,11 @@ export function Header() {
               <li>
                 <a href="/#testimonials" className="text-sm md:text-base hover:text-cyan-400 transition-colors font-medium border-b-2 border-transparent hover:border-cyan-400 pb-1">
                   Reviews
+                </a>
+              </li>
+              <li>
+                <a href="/blog/" className="text-sm md:text-base hover:text-cyan-400 transition-colors font-medium border-b-2 border-transparent hover:border-cyan-400 pb-1">
+                  Blog
                 </a>
               </li>
               <li>

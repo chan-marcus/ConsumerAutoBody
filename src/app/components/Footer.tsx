@@ -3,6 +3,7 @@ import logo from '../../imports/logo.webp';
 import googleLogo from '../../imports/google-logo.webp';
 import yelpLogo from '../../imports/yelp-logo.webp';
 import { SERVICES, servicePath } from '../services';
+import { BUSINESS } from '../site';
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -74,7 +75,7 @@ export function Footer() {
                   <img src={yelpLogo} alt="Yelp" width={64} height={64} loading="lazy" className="h-6 w-auto max-w-full" />
                 </a>
                 <a
-                  href="https://www.google.com/maps/place/Consumers+Auto+Body+Inc/@37.75817,-122.4211242,15z/data=!4m7!3m6!1s0x0:0x358d59699a3a300f!8m2!3d37.75817!4d-122.4211242!9m1!1b1"
+                  href={BUSINESS.googleReviewUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-center gap-2 px-4 py-2 bg-neutral-800 hover:bg-neutral-700 rounded transition-colors w-24"
@@ -95,6 +96,11 @@ export function Footer() {
                 </a>
               </li>
             ))}
+            <li>
+              <a href="/blog/" className="text-neutral-300 hover:text-cyan-400 transition-colors whitespace-nowrap">
+                Blog
+              </a>
+            </li>
           </ul>
         </nav>
 

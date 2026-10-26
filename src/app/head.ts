@@ -2,12 +2,14 @@
 // scripts/prerender.mjs.
 import { BUSINESS, SITE_URL } from './site';
 import { SERVICES, servicePath } from './services';
+import { POSTS, postPath } from './posts';
 
 export type Head = {
   title: string;
   description: string;
   path: string;
   noindex?: boolean;
+  ogType?: 'website' | 'article';
   schema: object[];
 };
 
@@ -42,7 +44,7 @@ const business = {
       closes: '17:30',
     },
   ],
-  sameAs: [BUSINESS.yelpUrl],
+  sameAs: [BUSINESS.yelpUrl, BUSINESS.googleUrl],
   hasOfferCatalog: {
     '@type': 'OfferCatalog',
     name: 'Auto body services',
@@ -94,6 +96,56 @@ export function headFor(path: string): Head {
       ],
     };
   }
+  if (path === '/blog/') {
+    return {
+      title: 'Auto Body Tips and Advice | Consumer Auto Body',
+      description:
+        'Straight answers about accidents, insurance claims, break-ins and car repairs in San Francisco, from Consumer Auto Body in the Mission District.',
+      path,
+      schema: [
+        business,
+        {
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE_URL}/` },
+            { '@type': 'ListItem', position: 2, name: 'Blog', item: `${SITE_URL}/blog/` },
+          ],
+        },
+      ],
+    };
+  }
+  const post = POSTS.find((x) => postPath(x) === path);
+  if (post) {
+    return {
+      title: post.title,
+      description: post.description,
+      path,
+      ogType: 'article',
+      schema: [
+        business,
+        {
+          '@type': 'BlogPosting',
+          headline: post.h1,
+          description: post.description,
+          datePublished: post.date,
+          dateModified: post.date,
+          url: SITE_URL + path,
+          mainEntityOfPage: SITE_URL + path,
+          image: `${SITE_URL}/og-image.jpg`,
+          author: { '@id': BUSINESS_ID },
+          publisher: { '@id': BUSINESS_ID },
+        },
+        {
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE_URL}/` },
+            { '@type': 'ListItem', position: 2, name: 'Blog', item: `${SITE_URL}/blog/` },
+            { '@type': 'ListItem', position: 3, name: post.h1, item: SITE_URL + path },
+          ],
+        },
+      ],
+    };
+  }
   return {
     title: 'Page Not Found | Consumer Auto Body',
     description: 'That page doesn’t exist. Find our services, address and phone number on the Consumer Auto Body home page.',
@@ -111,7 +163,7 @@ export function renderHead(h: Head): string {
     `<title>${esc(h.title)}</title>`,
     `<meta name="description" content="${esc(h.description)}" />`,
     h.noindex ? '<meta name="robots" content="noindex" />' : `<link rel="canonical" href="${url}" />`,
-    '<meta property="og:type" content="website" />',
+    `<meta property="og:type" content="${h.ogType ?? 'website'}" />`,
     `<meta property="og:site_name" content="${BUSINESS.name}" />`,
     `<meta property="og:title" content="${esc(h.title)}" />`,
     `<meta property="og:description" content="${esc(h.description)}" />`,

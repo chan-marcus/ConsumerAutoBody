@@ -1,5 +1,6 @@
 import { Star, Quote } from 'lucide-react';
 import { T } from '../typeset';
+import { BUSINESS } from '../site';
 
 export function Testimonials() {
   const testimonials = [
@@ -58,6 +59,18 @@ export function Testimonials() {
               </div>
             </div>
           ))}
+        </div>
+
+        <div className="text-center mt-10">
+          <a
+            href={BUSINESS.googleReviewUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 bg-white border border-neutral-300 hover:border-cyan-500 hover:text-cyan-700 transition-colors px-6 py-3 rounded-lg font-semibold shadow-sm whitespace-nowrap"
+          >
+            <Star className="w-5 h-5 text-yellow-500 fill-yellow-500" />
+            Review us on Google
+          </a>
         </div>
       </div>
     </section>

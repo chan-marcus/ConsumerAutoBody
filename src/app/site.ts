@@ -14,6 +14,8 @@ export const BUSINESS = {
   lat: 37.75817,
   lng: -122.4211242,
   yelpUrl: 'https://www.yelp.com/biz/consumer-auto-body-repair-san-francisco-3',
-  googleUrl:
-    'https://www.google.com/maps/place/Consumers+Auto+Body+Inc/@37.75817,-122.4211242,15z/data=!4m7!3m6!1s0x0:0x358d59699a3a300f!8m2!3d37.75817!4d-122.4211242!9m1!1b1',
+  /** The Business Profile on Google Maps (listed there as "Consumer Auto Body Inc"). */
+  googleUrl: 'https://maps.google.com/?cid=3858838765820325903',
+  /** Opens Google's "write a review" box for the profile. Text it to customers after a repair. */
+  googleReviewUrl: 'https://search.google.com/local/writereview?placeid=ChIJheoTMzx-j4ARDzA6mmlZjTU',
 };
