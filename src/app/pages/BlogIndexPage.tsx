@@ -29,8 +29,9 @@ export function BlogIndexPage() {
 
         <section className="py-16 bg-white">
           <div className="container mx-auto px-4">
-            <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-              {POSTS.map((post) => (
+            {/* One column, newest first, so any number of posts lays out evenly. */}
+            <div className="flex flex-col gap-6 max-w-3xl mx-auto">
+              {[...POSTS].sort((a, b) => b.date.localeCompare(a.date)).map((post) => (
                 <a
                   key={post.slug}
                   href={postPath(post)}
