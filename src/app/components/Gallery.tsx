@@ -9,8 +9,8 @@ import img16 from '../../imports/o__16_.jpg';
 import img15 from '../../imports/o__15_.jpg';
 import img14 from '../../imports/o__14_.jpg';
 import img13 from '../../imports/o__13_.jpg';
-import img2015a from '../../imports/20150708_173455__1_.jpg';
-import img2015b from '../../imports/20150710_110729.jpg';
+import img2015a from '../../imports/20150708_173455.webp';
+import img2015b from '../../imports/20150710_110729.webp';
 import img34 from '../../imports/o__34_.jpg';
 import img33 from '../../imports/o__33_.jpg';
 import img32 from '../../imports/o__32_.jpg';
@@ -23,23 +23,23 @@ export function Gallery() {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
   const images = [
     { url: img21, alt: 'Collision repair completed at Consumer Auto Body, San Francisco' },
-    { url: img20, alt: 'Auto body repair and paint refinishing — Consumer Auto Body SF' },
-    { url: img19, alt: 'Vehicle panel repair and color match — Mission District auto body shop' },
-    { url: img18, alt: 'Car door dent repair and repaint — Consumer Auto Body San Francisco' },
-    { url: img17, alt: 'Front end collision damage repair — Consumer Auto Body SF' },
-    { url: img16, alt: 'Full vehicle repaint — Consumer Auto Body, 923 Valencia Street SF' },
-    { url: img15, alt: 'Rear bumper repair and refinishing — San Francisco auto body' },
-    { url: img14, alt: 'Side panel collision repair — Consumer Auto Body Mission District' },
-    { url: img13, alt: 'Auto body restoration work — Consumer Auto Body San Francisco' },
-    { url: img2015a, alt: 'Vehicle paint correction and detailing — Consumer Auto Body SF' },
-    { url: img2015b, alt: 'Frame and structural repair — Consumer Auto Body San Francisco' },
-    { url: img34, alt: 'Hood and fender repair — Consumer Auto Body Mission District SF' },
-    { url: img33, alt: 'Car scratch and dent removal — Consumer Auto Body San Francisco' },
-    { url: img32, alt: 'Complete collision restoration — Consumer Auto Body SF' },
-    { url: img3, alt: 'Auto paint and body work — Consumer Auto Body San Francisco' },
-    { url: img4, alt: 'Bumper replacement and color match — Consumer Auto Body SF' },
-    { url: img12, alt: 'Vehicle body repair finished result — Consumer Auto Body San Francisco' },
-    { url: img9, alt: 'Professional auto body repair — Consumer Auto Body, Mission District SF' },
+    { url: img20, alt: 'Auto body repair and paint refinishing by Consumer Auto Body SF' },
+    { url: img19, alt: 'Vehicle panel repair and color match at a Mission District auto body shop' },
+    { url: img18, alt: 'Car door dent repair and repaint by Consumer Auto Body San Francisco' },
+    { url: img17, alt: 'Front end collision damage repair by Consumer Auto Body SF' },
+    { url: img16, alt: 'Full vehicle repaint at Consumer Auto Body, 923 Valencia Street SF' },
+    { url: img15, alt: 'Rear bumper repair and refinishing, San Francisco auto body' },
+    { url: img14, alt: 'Side panel collision repair by Consumer Auto Body Mission District' },
+    { url: img13, alt: 'Auto body restoration work by Consumer Auto Body San Francisco' },
+    { url: img2015a, alt: 'Vehicle paint correction and detailing by Consumer Auto Body SF' },
+    { url: img2015b, alt: 'Frame and structural repair by Consumer Auto Body San Francisco' },
+    { url: img34, alt: 'Hood and fender repair by Consumer Auto Body Mission District SF' },
+    { url: img33, alt: 'Car scratch and dent removal by Consumer Auto Body San Francisco' },
+    { url: img32, alt: 'Complete collision restoration by Consumer Auto Body SF' },
+    { url: img3, alt: 'Auto paint and body work by Consumer Auto Body San Francisco' },
+    { url: img4, alt: 'Bumper replacement and color match by Consumer Auto Body SF' },
+    { url: img12, alt: 'Vehicle body repair finished result by Consumer Auto Body San Francisco' },
+    { url: img9, alt: 'Professional auto body repair at Consumer Auto Body, Mission District SF' },
   ];
 
   const handlePrevious = () => {
@@ -55,7 +55,7 @@ export function Gallery() {
       <div className="container mx-auto px-4 relative z-10">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Our Work</h2>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
           {images.map((image, index) => (
             <div
               key={index}
@@ -65,6 +65,8 @@ export function Gallery() {
               <img
                 src={image.url}
                 alt={image.alt}
+                loading="lazy"
+                decoding="async"
                 className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
               />
             </div>

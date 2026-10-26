@@ -180,6 +180,15 @@
     line-height: 1.5;
   }
 
+  /* Backstop for line fill; the T component in src/app/typeset.tsx does the real work. */
+  p, li, figcaption, dd {
+    text-wrap: pretty;
+  }
+
+  h1, h2, h3 {
+    text-wrap: balance;
+  }
+
   /* Add scroll margin for sections to account for sticky header */
   section[id] {
     scroll-margin-top: 108px; /* Adjusted for 10% scale down */

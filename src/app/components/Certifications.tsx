@@ -21,7 +21,7 @@ export function Certifications() {
     },
     {
       name: 'I-CAR',
-      title: 'I-CAR Certified Technicians',
+      title: 'Certified Technicians',
       image: icarLogo,
       color: 'text-cyan-600'
     },
@@ -54,7 +54,7 @@ export function Certifications() {
               <div key={index} className="text-center w-40">
                 <div className="bg-white rounded-lg p-6 mb-3 shadow-lg hover:shadow-xl transition-shadow flex items-center justify-center h-[120px]">
                   {cert.image ? (
-                    <img src={cert.image} alt={cert.name} className="max-w-full max-h-full object-contain" />
+                    <img src={cert.image} alt={cert.name} loading="lazy" className="max-w-full max-h-full object-contain" />
                   ) : (
                     <Icon className={`w-12 h-12 ${cert.color} mx-auto`} />
                   )}

@@ -1,4 +1,5 @@
 import { Star, Quote } from 'lucide-react';
+import { T } from '../typeset';
 
 export function Testimonials() {
   const testimonials = [
@@ -48,7 +49,7 @@ export function Testimonials() {
               </div>
 
               <p className="text-neutral-700 mb-6 leading-relaxed italic">
-                "{testimonial.text}"
+                <T>{`"${testimonial.text}"`}</T>
               </p>
 
               <div className="border-t pt-4">

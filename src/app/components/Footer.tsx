@@ -1,7 +1,8 @@
 import { Phone, MapPin, Mail, Star, Globe } from 'lucide-react';
-import logo from '../../imports/ChatGPT_Image_May_22__2026__12_49_36_PM-2.png';
-import googleLogo from '../../imports/image.png';
-import yelpLogo from '../../imports/image-1.png';
+import logo from '../../imports/logo.webp';
+import googleLogo from '../../imports/google-logo.webp';
+import yelpLogo from '../../imports/yelp-logo.webp';
+import { SERVICES, servicePath } from '../services';
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -15,6 +16,9 @@ export function Footer() {
               <img
                 src={logo}
                 alt="Consumer Auto Body"
+                width={694}
+                height={360}
+                loading="lazy"
                 className="h-16 w-auto"
               />
               <h3 className="text-xl font-bold tracking-wider uppercase" style={{ fontFamily: "'Playfair Display', serif" }}>
@@ -67,7 +71,7 @@ export function Footer() {
                   rel="noopener noreferrer"
                   className="flex items-center justify-center gap-2 px-4 py-2 bg-neutral-800 hover:bg-neutral-700 rounded transition-colors w-24"
                 >
-                  <img src={yelpLogo} alt="Yelp" className="h-6 w-auto max-w-full" />
+                  <img src={yelpLogo} alt="Yelp" width={64} height={64} loading="lazy" className="h-6 w-auto max-w-full" />
                 </a>
                 <a
                   href="https://www.google.com/maps/place/Consumers+Auto+Body+Inc/@37.75817,-122.4211242,15z/data=!4m7!3m6!1s0x0:0x358d59699a3a300f!8m2!3d37.75817!4d-122.4211242!9m1!1b1"
@@ -75,12 +79,24 @@ export function Footer() {
                   rel="noopener noreferrer"
                   className="flex items-center justify-center gap-2 px-4 py-2 bg-neutral-800 hover:bg-neutral-700 rounded transition-colors w-24"
                 >
-                  <img src={googleLogo} alt="Google" className="h-6 w-auto max-w-full" />
+                  <img src={googleLogo} alt="Google" width={63} height={64} loading="lazy" className="h-6 w-auto max-w-full" />
                 </a>
               </div>
             </div>
           </div>
         </div>
+
+        <nav aria-label="Services" className="border-t border-neutral-800 pt-8 mb-8">
+          <ul className="flex flex-wrap justify-center gap-x-6 gap-y-3 text-sm">
+            {SERVICES.map((s) => (
+              <li key={s.slug}>
+                <a href={servicePath(s)} className="text-neutral-300 hover:text-cyan-400 transition-colors whitespace-nowrap">
+                  {s.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
 
         <div className="border-t border-neutral-800 pt-8 text-center text-neutral-400 text-sm">
           <p>&copy; {currentYear} Consumer Auto Body. All rights reserved.</p>

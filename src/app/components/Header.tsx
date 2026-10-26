@@ -1,6 +1,6 @@
 import { Phone, MapPin, Clock, Star, Globe } from 'lucide-react';
-import googleLogo from '../../imports/image.png';
-import yelpLogo from '../../imports/image-1.png';
+import googleLogo from '../../imports/google-logo.webp';
+import yelpLogo from '../../imports/yelp-logo.webp';
 
 export function Header() {
   return (
@@ -37,7 +37,7 @@ export function Header() {
                     className="flex items-center hover:opacity-80 transition-opacity"
                     title="Review us on Yelp"
                   >
-                    <img src={yelpLogo} alt="Yelp" className="h-4 md:h-5 w-auto" />
+                    <img src={yelpLogo} alt="Yelp" width={64} height={64} className="h-4 md:h-5 w-auto" />
                   </a>
                   <a
                     href="https://www.google.com/maps/place/Consumers+Auto+Body+Inc/@37.75817,-122.4211242,15z/data=!4m7!3m6!1s0x0:0x358d59699a3a300f!8m2!3d37.75817!4d-122.4211242!9m1!1b1"
@@ -46,7 +46,7 @@ export function Header() {
                     className="flex items-center hover:opacity-80 transition-opacity"
                     title="Find us on Google"
                   >
-                    <img src={googleLogo} alt="Google" className="h-4 md:h-5 w-auto" />
+                    <img src={googleLogo} alt="Google" width={63} height={64} className="h-4 md:h-5 w-auto" />
                   </a>
                 </div>
               </div>
@@ -60,10 +60,18 @@ export function Header() {
         <div className="flex flex-col md:flex-row justify-between items-center py-4 gap-4">
           {/* Logo & Tagline */}
           <div className="text-center md:text-left">
-            <a href="#" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }} className="cursor-pointer">
-              <h1 className="text-2xl md:text-3xl font-bold tracking-wider uppercase mb-1 text-white hover:text-cyan-400 transition-colors" style={{ fontFamily: "'Playfair Display', serif" }}>
+            <a
+              href="/"
+              onClick={(e) => {
+                if (window.location.pathname !== '/') return;
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
+              className="cursor-pointer"
+            >
+              <span className="block text-2xl md:text-3xl font-bold tracking-wider uppercase mb-1 text-white hover:text-cyan-400 transition-colors" style={{ fontFamily: "'Playfair Display', serif" }}>
                 Consumer Auto Body
-              </h1>
+              </span>
             </a>
             <p className="text-neutral-300 text-xs tracking-wide">Over 30+ Years of Excellence • Est. 2002</p>
           </div>
@@ -72,27 +80,27 @@ export function Header() {
           <nav className="w-full md:w-auto">
             <ul className="flex flex-wrap justify-center gap-4 md:gap-6 lg:gap-8">
               <li>
-                <a href="#about" className="text-sm md:text-base hover:text-cyan-400 transition-colors font-medium border-b-2 border-transparent hover:border-cyan-400 pb-1">
+                <a href="/#about" className="text-sm md:text-base hover:text-cyan-400 transition-colors font-medium border-b-2 border-transparent hover:border-cyan-400 pb-1">
                   About
                 </a>
               </li>
               <li>
-                <a href="#gallery" className="text-sm md:text-base hover:text-cyan-400 transition-colors font-medium border-b-2 border-transparent hover:border-cyan-400 pb-1">
+                <a href="/#gallery" className="text-sm md:text-base hover:text-cyan-400 transition-colors font-medium border-b-2 border-transparent hover:border-cyan-400 pb-1">
                   Gallery
                 </a>
               </li>
               <li>
-                <a href="#services" className="text-sm md:text-base hover:text-cyan-400 transition-colors font-medium border-b-2 border-transparent hover:border-cyan-400 pb-1">
+                <a href="/#services" className="text-sm md:text-base hover:text-cyan-400 transition-colors font-medium border-b-2 border-transparent hover:border-cyan-400 pb-1">
                   Services
                 </a>
               </li>
               <li>
-                <a href="#testimonials" className="text-sm md:text-base hover:text-cyan-400 transition-colors font-medium border-b-2 border-transparent hover:border-cyan-400 pb-1">
+                <a href="/#testimonials" className="text-sm md:text-base hover:text-cyan-400 transition-colors font-medium border-b-2 border-transparent hover:border-cyan-400 pb-1">
                   Reviews
                 </a>
               </li>
               <li>
-                <a href="#location" className="text-sm md:text-base bg-cyan-500 hover:bg-cyan-600 transition-colors px-4 py-2 rounded font-medium">
+                <a href="/#location" className="text-sm md:text-base bg-cyan-500 hover:bg-cyan-600 transition-colors px-4 py-2 rounded font-medium">
                   Contact
                 </a>
               </li>
