@@ -4,6 +4,7 @@ import googleLogo from '../../imports/google-logo.webp';
 import yelpLogo from '../../imports/yelp-logo.webp';
 import { SERVICES, servicePath } from '../services';
 import { BUSINESS } from '../site';
+import { ContyntCredit } from './ContyntCredit';
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -107,6 +108,7 @@ export function Footer() {
         <div className="border-t border-neutral-800 pt-8 text-center text-neutral-400 text-sm">
           <p>&copy; {currentYear} Consumer Auto Body. All rights reserved.</p>
           <p className="mt-2">Established in 2002 • Over 30 Years Experience</p>
+          <p className="mt-4"><ContyntCredit /></p>
         </div>
       </div>
     </footer>
